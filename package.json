@@ -30,7 +30,9 @@
   "author": "Julien Castelain <jcastelain@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "event-stream": "latest",
     "gaze": "latest",
+    "readdirp": "latest",
     "tiny-lr": "latest"
   },
   "devDependencies": {
