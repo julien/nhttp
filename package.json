@@ -16,6 +16,7 @@
     "static server"
   ],
   "directories": {
+    "bin": "bin",
     "test": "test"
   },
   "scripts": {
@@ -24,7 +25,7 @@
     "lint": "node ./node_modules/.bin/eslint index.js lib/*.js test/*.js"
   },
   "bin": {
-    "nhttp": "./index.js"
+    "nhttp": "./nhttpd.js"
   },
   "author": "Julien Castelain <jcastelain@gmail.com>",
   "license": "MIT",
