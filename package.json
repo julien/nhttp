@@ -1,0 +1,41 @@
+{
+  "name": "nhttp",
+  "version": "0.1.0",
+  "description": "Light HTTP server for local development",
+  "readme": "Light HTTP server for local development",
+  "main": "./index.js",
+  "repository": "git://github.com/julien/nhttp.git",
+  "keywords": [
+    "simple",
+    "http",
+    "server",
+    "livereload",
+    "light",
+    "zero config",
+    "local server",
+    "static server"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test":  "node ./node_modules/.bin/_mocha test/*.js",
+    "cover": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- test/*.js",
+    "lint": "node ./node_modules/.bin/eslint index.js lib/*.js test/*.js"
+  },
+  "bin": {
+    "nhttp": "./index.js"
+  },
+  "author": "Julien Castelain <jcastelain@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gaze": "latest",
+    "tiny-lr": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "istanbul": "latest",
+    "mocha": "latest"
+  },
+  "preferGlobal": true
+}
