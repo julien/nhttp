@@ -1,7 +1,6 @@
 'use strict';
 
-var os = require('os')
-  , path = require('path')
+var path = require('path')
   , gaze = require('gaze')
   , server = require('./lib/server')
   , reload = require('./lib/reload')

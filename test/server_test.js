@@ -2,7 +2,6 @@
 
 var assert = require('assert')
   , http = require('http')
-  , path = require('path')
   , server = require('../lib/server');
 
 describe('server', function () {
@@ -60,7 +59,7 @@ describe('server', function () {
   it('should allow visiting directories', function (done) {
     http.get('http://localhost:3333/test/fixtures', function (res) {
 
-      assert.deepEqual(res.headers['location'], '/test/fixtures/index.html');;
+      assert.deepEqual(res.headers['location'], '/test/fixtures/index.html');
       assert.notEqual(res.statusCode, 404);
 
       done();

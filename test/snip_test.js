@@ -6,7 +6,7 @@ var assert = require('assert')
   , stream = require('stream')
   , snip = require('../lib/snip');
 
-var expected = fs.readFileSync(path.join(__dirname + path.sep + 'fixtures/snip.html'), 'utf8').trim();
+var expected = fs.readFileSync(path.join(__dirname, path.sep, 'fixtures/snip.html'), 'utf8').trim();
 
 describe('snip', function () {
 

@@ -40,6 +40,4 @@ describe('reload', function () {
     rld.off('change', function (){});
   });
 
-
-
 });
