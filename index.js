@@ -35,7 +35,7 @@ process.on('SIGINT', function () {
 });
 
 // server
-srv = server();
+srv = server(!silent);
 srv.on('close', function () {
   console.log('Bye!');
 });
