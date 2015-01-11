@@ -29,6 +29,11 @@ nhttp -d somedir
 nhttp -p someport
 ```
 
+```
+# start server without livereload
+nhttp -s
+```
+
 You can of course combine flags.
 
 By default "live reloading" is enabled, for any extension
