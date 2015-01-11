@@ -12,6 +12,7 @@ var rport = 35729;
 var srv;
 var rld;
 var root;
+var silent;
 
 var args = process.argv.slice(2);
 while (args.length > 0) {
@@ -19,6 +20,7 @@ while (args.length > 0) {
   switch (arg) {
   case '-d': root = path.resolve(args.shift()); process.chdir(root); break;
   case '-p': var p = parseInt(args.shift(), 10); if (p) sport = p; break;
+  case '-s': silent = true; break;
   }
 }
 
@@ -49,16 +51,18 @@ srv.on('listening', function () {
 });
 srv.listen(sport);
 
-// livereload
-rld = reload();
-rld.listen(rport);
 
-// watcher
-ls('./').on('end', function (results) {
-  gaze(results, function (err, watcher) {
-    watcher.on('changed', function (filepath) {
-      rld.notify(filepath);
+
+if (!silent) {
+  // livereload
+  rld = reload();
+  rld.listen(rport);
+  // watcher
+  ls('./').on('end', function (results) {
+    gaze(results, function (err, watcher) {
+      watcher.on('changed', function (filepath) {
+        rld.notify(filepath);
+      });
     });
   });
-});
-
+}
