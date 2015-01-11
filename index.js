@@ -13,6 +13,9 @@ var srv;
 var rld;
 var root;
 
+var srvport = numiterator(9000, 10);
+
+
 var args = process.argv.slice(2);
 while (args.length > 0) {
   var arg = args.shift();
@@ -31,7 +34,6 @@ process.on('SIGINT', function () {
 });
 
 // server
-srv = server();
 srv.on('close', function () {
   console.log('Bye!');
 });
