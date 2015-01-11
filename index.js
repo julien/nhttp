@@ -13,9 +13,6 @@ var srv;
 var rld;
 var root;
 
-var srvport = numiterator(9000, 10);
-
-
 var args = process.argv.slice(2);
 while (args.length > 0) {
   var arg = args.shift();
@@ -25,7 +22,9 @@ while (args.length > 0) {
   }
 }
 
-process.on('uncaughtException', function (err) { console.log('ERROR:%s', err); });
+process.on('uncaughtException', function (err) {
+  console.log('ERROR: %s', err.stack);
+});
 
 process.on('SIGINT', function () {
   if (srv) srv.close();
@@ -34,12 +33,13 @@ process.on('SIGINT', function () {
 });
 
 // server
+srv = server();
 srv.on('close', function () {
   console.log('Bye!');
 });
 srv.on('error', function (err) {
   if (err.code === 'EACCES' || err.code === 'EADDRINUSE') {
-    console.error('... Failed starting server on port', sport);
+    console.error('Failed starting server on port', sport);
     process.kill();
   }
 });
